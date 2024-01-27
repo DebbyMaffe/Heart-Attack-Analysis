@@ -1,5 +1,5 @@
-# Heart-Attack-Analysis
-**Heart Attack Analysis and Prediction** - University Group Project
+# Heart-Attack-Analysis-Prediction
+**Analyzing and Predicting Heart Attacks through Classification Algorithms** - University Group Project
 
 ## 01. INTRODUCTION
 **DATA SOURCE**
