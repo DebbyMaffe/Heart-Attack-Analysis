@@ -6,6 +6,7 @@
 
 The *dataset* used for the project has been taken from **kaggle.com** at the following link: 
 <https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset?resource=download>.
+
 It collects the **age** of the person (between 29 and 77), the **sex** of the patient (O - female, 1 - male), the Chest Pain Type (**cp**), the Resting Blood Pressure (**trtbps**) in mmHg, the Cholesterol in mg/dl fetched via BMI sensor (**chol**), the Fasting Blood Sugar > 120 mg/dl (**fbs**), the Resting Electrocardiogram Results (**restecg**), the Maximum Heart Rate achieved (**thalachh**), the Exercise Induced Angina (**exng**), the Stress Test Depression (**oldpeak**), the Slope for Peak Exercise (**slp**), the Number of Major Vessel (**caa**), the Blood Disorder called Thalassemia (**thall**), and the Heart Disease Prediction representing the **output**. 
 
 # 02. EXPLORATORY DATA ANALYSIS
