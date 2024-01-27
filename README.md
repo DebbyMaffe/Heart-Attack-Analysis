@@ -1,59 +1,35 @@
 # Heart-Attack-Analysis
+**Heart Attack Analysis and Prediction** - University Group Project
 
-**Heart Attack Analysis and Prediction**.
+## 01. INTRODUCTION
+**DATA SOURCE**
 
-The *dataset* used for the project has been taken from **kaggle.com** at the
-following link: <https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset?resource=download>.
-Let's explain the **characteristic** of each variable:
--   ***age*** : Age of the person (between 29 and 77)
--   ***sex*** : Sex of the patient
-    -   *value 0 :* female
-    -   *value 1 :* male
--   ***cp*** : Chest Pain Type
-    -   *value 1 :* typical angina
-    -   *value 2 :* atypical angina
-    -   *value 3 :* not anginal pain
-    -   *value 4 :* asymptomatic
--   ***trtbps*** : Resting Blood Pressure in mmHg (between 94 and 200)
--   ***chol*** : Cholesterol in mg/dl fetched via BMI sensor (between
-    126 and 564)
--   ***fbs*** : Fasting Blood Sugar \> 120 mg/dl
-    -   *value 0 :* false
-    -   *value 1 :* true
--   ***restecg*** : Resting Electrocardiogram Results
-    -   *value 0 :* normal
-    -   *value 1 :* having ST-T wave abnormality (T wave inversions
-        and/or ST elevation or depression of \> 0.05 mV)
-    -   *value 2 :* showing probable or definite left ventricular
-        hypertrophy
--   ***thalachh*** : Maximum Heart Rate achieved (between 71 and 202)
--   ***exng*** : Exercise Induced Angina
-    -   *value 0 :* no
-    -   *value 1 :* yes
--   ***oldpeak*** : Stress Test Depression (between 0 and 6.2)
--   ***slp*** : Slope for Peak Exercise
-    -   *value 0 :* downsloping
-    -   *value 1 :* flat
-    -   *value 2 :* upsloping
--   ***caa*** : Number of Major Vessels (0 - 3)
--   ***thall*** : Blood Disorder called Thalassemia
-    -   *value 0 :* NULL
-    -   *value 1 :* fixed defect (no blood flow)
-    -   *value 2 :* normal
-    -   *value 3 :* reversable defect
--   ***output*** : Heart Disease Prediction
-    -   *value 0 :* less chance of heart attack
-    -   *value 1 :* more chance of heart attack.
+The *dataset* used for the project has been taken from **kaggle.com** at the following link: 
+<https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset?resource=download>.
+It collects the **age** of the person (between 29 and 77), the **sex** of the patient (O - female, 1 - male), the Chest Pain Type (**cp**), the Resting Blood Pressure (**trtbps**) in mmHg, the Cholesterol in mg/dl fetched via BMI sensor (**chol**), the Fasting Blood Sugar > 120 mg/dl (**fbs**), the Resting Electrocardiogram Results (**restecg**), the Maximum Heart Rate achieved (**thalachh**), the Exercise Induced Angina (**exng**), the Stress Test Depression (**oldpeak**), the Slope for Peak Exercise (**slp**), the Number of Major Vessel (**caa**), the Blood Disorder called Thalassemia (**thall**), and the Heart Disease Prediction representing the **output**. 
 
-Once performed *Exploratory Data Analysis* consisting on correlation analysis, data visualization and output distribution analysis, let's apply the most common **Multidimensional Reduction** techniques for *reducing* the number of random variables by obtaining a set of principal variables. In particular, let's consider the [Principal Component Analysis]{.underline} (***PCA***), a statistical method to find a ***projection*** to a linear subspace that preserves as much as possible of the original variance in the data. 
+# 02. EXPLORATORY DATA ANALYSIS
+Once converted *nominal* attributes (sex, cp, fbs, restecq, exnq, slp, caa, thall, and output) into *categorical* variables for better analysis, let's perform Exploratory Data Analysis (**EDA**): utilizing visualizations, we find **no missing** values in the Heart Attack dataset. In particular, **64%** of the dataset consists of *discrete* columns, while **36%** are *continuous*. Correlation analysis reveals **minimal** *dependence* between variables, with key features identified. Fata visualization and output distribution analysis highlight a **positive** correlation between *age* and *cholesterol*, *age* and maximum heart *rate*, and key patterns related to the probability of heart diseases based on *age* and *gender*. Moreover, the dataset suggests that **women** are *more prone* to heart diseases, and certain factors impact the probability of heart attacks differently for males and females.
 
-Then, let's analyze the main techniques used to summarize, describe and explore the data set in order to highlight the *relationships* and *similarities* between individual data points:
+# 03. MULTIDIMENSIONAL REDUCTION
+Utilizing Multidimensional Reduction techniques, specifically Principal Component Analysis (**PCA**), we *project* the higher-dimensional dataset into a *smaller* subspace to preserve the original structure. **PC1** and **PC2**, the first two principal components, explain the *majority* of the dataset's variance. A biplot shows the representation of observations based on PC1 and PC2, revealing **similar** data patterns. A screeplot confirms the variance distribution, with **PC1** explaining **36.1%**, **PC2 21.6%**, PC3 17.7%, PC4 15.2%, and PC5 9.5% of the total dataset variance.
+
+# 04. PATTERN IDENTIFICATION
+To highlight the *relationships* and *similarities* between individual data points, we decide to implement the following techniques:
 * **Hierarchical clustering** is a method for visualizing and interpreting the *relationship* between individual data points. The algorithm builds clusters by measuring the *dissimilarities* between data. This method does ***not*** require the number of clusters to be selected before running the algorithm and it works better when the data has a *nested* structure;
 * **Prototype-Based Clustering** (or *k-means* algorithm) condenses all observations into a small, fixed number of *prototypical* records, each of them standing for a *subgroup* of the dataset. For the k-means algorithm, it is necessary to select the***number*** of clusters in advance. This technique is more *efficient* than the previous one, and the results are understandable even for much larger datasets;
 * **Association Rule Mining** is a common technique used to find *associations* between variables. It controls the number of rules to be generated by using three parameters: *Support* (how frequently it appears in the dataset), *Confidence* (how often rule has been found to be true) and *Lift* (major parameter based in the previous ones);
 * **Decision Tree** is a method for visualizing and interpreting the *relationship* between individual data points in form of a tree. Each *node* of the graph identifies an event or choice, while each *edge* of the graph represents the decision rules or conditions.
 
-In the final part of our analysis let's implement three different **classification** algorithms identifying to which set of categories an observation belongs:
+In particular, Hierarchical clustering reveals **two** optimal **clusters** with distinct probabilities of heart disease. K-means identifies **two clusters** based on mean values of numeric attributes, providing a clearer understanding. Association rule mining generates rules with varying *support*, *confidence*, and *lift*. Decision tree analysis highlights *significant* variables, offering a comprehensive view of the features impacting the likelihood of heart attacks.
+
+# 05. CLASSIFICATION 
+After an **80/20** train-test *split*, let's implement three different **classification** algorithms identifying to which set of *categories* an observation belongs:
 1. **Naive Bayes Classifiers** are a family of probabilistic classifiers based on applying *Bayes* theorem with strong assumptions, stating that the occurrence of a certain feature is *independent* of the occurrence of other variables;
 2. **K-Nearest Neighbors** *(k-NN)* is a classifier which uses proximity to make *classifications* and *predictions* about the grouping of an individual data point, assuming that *similar* points can be found *near* one another;
 3. **Support Vector Machine** *(SVM)* is a classification algorithm that finds the hyperplane with *maximum* margin in an N-dimensional space (where N is the number of features) that distinctly *classifies* the data points.
+
+Being more precise, *Naive Bayes* achieves an accuracy of **82%**, *K-Nearest Neighbors* achieves **70%**, and *Support Vector Machine* achieves **88%**.
+
+# 06. CONCLUSION
+In Exploratory Data Analysis (**EDA**), crucial features impacting the likelihood of a heart attack include *thalachh*, *oldpeak*, *cp*, *thall*, *exng*, and *chol*. Distribution plots reveal **patterns** such as higher Maximum Heart Rate, lower Previous Peak, Not Anginal chest pain, Normal Blood Disorder, NO Exercise Induced Angina, and higher Cholesterol linking to increased *chances* of cardiac disease. **Prototype Clustering** emerges as the most *efficient* for pattern identification. In Classification Algorithms, **Naive Bayes** exhibits the highest accuracy at **86.9%**, surpassing K-Nearest Neighbors (50.8%) and Support Vector Machine (83.6%), making it the preferred model for the Heart Attack dataset.
