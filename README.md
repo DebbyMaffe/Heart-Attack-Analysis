@@ -30,7 +30,5 @@ After an **80/20** train-test *split*, let's implement three different **classif
 2. **K-Nearest Neighbors** *(k-NN)* is a classifier which uses proximity to make *classifications* and *predictions* about the grouping of an individual data point, assuming that *similar* points can be found *near* one another;
 3. **Support Vector Machine** *(SVM)* is a classification algorithm that finds the hyperplane with *maximum* margin in an N-dimensional space (where N is the number of features) that distinctly *classifies* the data points.
 
-Being more precise, *Naive Bayes* achieves an accuracy of **82%**, *K-Nearest Neighbors* achieves **70%**, and *Support Vector Machine* achieves **88%**.
-
 # 06. CONCLUSION
 In Exploratory Data Analysis (**EDA**), crucial features impacting the likelihood of a heart attack include *thalachh*, *oldpeak*, *cp*, *thall*, *exng*, and *chol*. Distribution plots reveal **patterns** such as higher Maximum Heart Rate, lower Previous Peak, Not Anginal chest pain, Normal Blood Disorder, NO Exercise Induced Angina, and higher Cholesterol linking to increased *chances* of cardiac disease. **Prototype Clustering** emerges as the most *efficient* for pattern identification. In Classification Algorithms, **Naive Bayes** exhibits the highest accuracy at **86.9%**, surpassing K-Nearest Neighbors (50.8%) and Support Vector Machine (83.6%), making it the preferred model for the Heart Attack dataset.
